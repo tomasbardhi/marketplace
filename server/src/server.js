@@ -460,7 +460,7 @@ app.get("/api/v1/creator_single", async (req, res) => {
         if (result.rows.length === 0) {
             res.json({
                 status: "failed",
-                message: "creator not found"
+                message: "nothing found"
             })
         } else {
             res.status(200).json({
@@ -486,7 +486,7 @@ app.get("/api/v1/creator_collection_single", async (req, res) => {
         if (result.rows.length === 0) {
             res.json({
                 status: "failed",
-                message: "creator not found"
+                message: "nothing found"
             })
         } else {
             res.status(200).json({
@@ -494,6 +494,39 @@ app.get("/api/v1/creator_collection_single", async (req, res) => {
                 length: result.rows.length,
                 data: {
                     data: result.rows
+                }
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            status: "failed",
+            message: error.message
+        })
+    }
+})
+
+// get join between creator and single and collection, filter only one single
+app.get("/api/v1/creator_collection_single/:id", async (req, res) => {
+    try {
+        const result = await db.query(
+            `SELECT * 
+            FROM creator 
+            JOIN single ON creator.creator_id = single.single_creator_id 
+            JOIN collection ON creator.creator_id = collection.collection_creator_id
+            WHERE single.single_id = $1`,
+            [req.params.id]
+        )
+        if (result.rows.length === 0) {
+            res.json({
+                status: "failed",
+                message: "nothing found"
+            })
+        } else {
+            res.status(200).json({
+                status: "success",
+                length: result.rows.length,
+                data: {
+                    data: result.rows[0]
                 }
             })
         }

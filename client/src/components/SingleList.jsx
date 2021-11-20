@@ -1,10 +1,16 @@
 import React, { useContext, useEffect } from 'react'
 import Api from '../api/Api'
 import { AppContext } from "../context/AppContext"
+import { useNavigate } from "react-router-dom"
 
 function SingleList(props) {
 
     const { elements, setElements } = useContext(AppContext)
+    const navigate = useNavigate();
+
+    const handleView = (id) => {
+        navigate(`/single/${id}`)
+    }
 
     useEffect(() => {
         const fetchElements = async () => {
@@ -17,7 +23,7 @@ function SingleList(props) {
             }
         }
         fetchElements()
-    }, [])
+    }, [setElements])
 
     return (
         <div>
@@ -28,6 +34,7 @@ function SingleList(props) {
                         <th>Name</th>
                         <th>Creator</th>
                         <th>Collection</th>
+                        <th>View</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,12 +45,13 @@ function SingleList(props) {
                                 <td>{element.single_name}</td>
                                 <td>{element.creator_name}</td>
                                 <td>{element.collection_name}</td>
+                                <td><button onClick={() => handleView(element.single_id)}>View</button></td>
                             </tr>
                         )
                     })}
                 </tbody>
             </table>
-        </div>
+        </div >
     )
 }
 

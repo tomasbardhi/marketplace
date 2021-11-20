@@ -1,9 +1,10 @@
 import React from 'react'
+import SingleDetail from "../components/SingleDetail"
 
 function SingleDetailPage() {
     return (
         <div>
-            Single Detail
+            <SingleDetail />
         </div>
     )
 }
