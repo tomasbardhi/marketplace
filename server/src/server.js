@@ -419,6 +419,92 @@ app.delete("/api/v1/deleteSingle/:id", async (req, res) => {
     }
 })
 
+/* specific */
+
+// get creator of one single
+app.get("/api/v1/creator_single/:id", async (req, res) => {
+    try {
+        const result = await db.query(
+            `SELECT creator_id, creator_name, creator_address
+            FROM creator
+            JOIN single ON single.single_creator_id = creator.creator_id
+            WHERE single.single_id = $1`,
+            [req.params.id]
+        )
+        if (result.rows.length === 0) {
+            res.json({
+                status: "failed",
+                message: "creator not found"
+            })
+        } else {
+            res.status(200).json({
+                status: "success",
+                length: result.rows.length,
+                data: {
+                    creator: result.rows[0]
+                }
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            status: "failed",
+            message: error.message
+        })
+    }
+})
+
+// get join between creator and single
+app.get("/api/v1/creator_single", async (req, res) => {
+    try {
+        const result = await db.query(`SELECT * FROM creator JOIN single ON creator.creator_id = single.single_creator_id`)
+        if (result.rows.length === 0) {
+            res.json({
+                status: "failed",
+                message: "creator not found"
+            })
+        } else {
+            res.status(200).json({
+                status: "success",
+                length: result.rows.length,
+                data: {
+                    data: result.rows
+                }
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            status: "failed",
+            message: error.message
+        })
+    }
+})
+
+// get join between creator and single and collection
+app.get("/api/v1/creator_collection_single", async (req, res) => {
+    try {
+        const result = await db.query(`SELECT * FROM creator JOIN single ON creator.creator_id = single.single_creator_id JOIN collection on creator.creator_id = collection.collection_creator_id`)
+        if (result.rows.length === 0) {
+            res.json({
+                status: "failed",
+                message: "creator not found"
+            })
+        } else {
+            res.status(200).json({
+                status: "success",
+                length: result.rows.length,
+                data: {
+                    data: result.rows
+                }
+            })
+        }
+    } catch (error) {
+        res.status(500).json({
+            status: "failed",
+            message: error.message
+        })
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server is up and listening on port: ${port}`)
 })
