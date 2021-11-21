@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import SingleDetailPage from './routes/SingleDetailPage'
 import Home from './routes/Home'
 import { AppContextProvider } from "./context/AppContext"
-// import "./style/SingleDetailStyle/SingleDetail.css"
 import "./style/style.css"
 
 const App = () => {
