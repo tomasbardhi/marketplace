@@ -29,54 +29,28 @@ function SingleList(props) {
         fetchElements()
     }, [setElements])
 
-    const testElements = [
-        {
-            single_id: 1,
-            single_name: "name1",
-            single_creator_name: "creator1",
-            single_collection_name: "collection1"
-        },
-        {
-            single_id: 1,
-            single_name: "name1",
-            single_creator_name: "creator1",
-            single_collection_name: "collection1"
-        },
-        {
-            single_id: 1,
-            single_name: "name1",
-            single_creator_name: "creator1",
-            single_collection_name: "collection1"
-        },
-        {
-            single_id: 1,
-            single_name: "name1",
-            single_creator_name: "creator1",
-            single_collection_name: "collection1"
-        },
-        {
-            single_id: 1,
-            single_name: "name1",
-            single_creator_name: "creator1",
-            single_collection_name: "collection1"
-        }
-    ]
-
     return (
         <div className="singleList">
             <div className="singleListGrid">
-                {testElements.map((element) => {
+                {elements.map((element) => {
                     return (
                         <div className="single" key={element.single_id} onClick={() => handleView(element.single_id)}>
-                            <div className="img"></div>
-                            <div className="detail">
-                                <div>{element.single_id}</div>
-                                <div>{element.single_name}</div>
-                                <div>{element.creator_name}</div>
-                                <div>{element.collection_name}</div>
+                            <div className="imgPadding">
+                                <div className="imgContainer">
+                                    <div className="img"></div>
+                                </div>
                             </div>
-                            <div className="action">
-                                <div className="detailBtn"><p>View</p></div>
+                            <div className="infoContainer">
+                                <div className="infoDetail">
+                                    {/* <div>{element.single_id}</div> */}
+                                    <div className="collectionName"><p>{element.collection_name}</p></div>
+                                    <div className="singleName"><p>{element.single_name}</p></div>
+                                    <div className="creatorName"><p>By {element.creator_name}</p></div>
+                                </div>
+                                <div className="priceDetail">
+                                    <p className="buyBtn">Buy Now</p>
+                                    <p className="price">ETH 0.43</p>
+                                </div>
                             </div>
                         </div>
                     )
