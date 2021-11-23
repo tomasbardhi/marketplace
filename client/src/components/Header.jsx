@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useNavigate } from "react-router-dom"
+import { AppContext } from '../context/AppContext'
 
 function Header() {
+
+    const navigate = useNavigate();
+    const { activeMenu, setActiveMenu } = useContext(AppContext)
+    const pathname = window.location.pathname
+
+    useEffect(() => {
+        setActiveMenu(pathname)
+    }, [pathname, setActiveMenu])
+
     return (
         <div className="headerWrapper">
             <div className="header">
                 <div className="upperMenu">
-                    <div className="logo">
+                    <div className="logo" onClick={() => navigate(`/`)}>
                         <p>DeceNFT</p>
                     </div>
                     <div className="search">
@@ -18,10 +29,10 @@ function Header() {
                 <div className="lowerMenu">
                     <div className="menu">
                         <ul>
-                            <li>Explore</li>
-                            <li className="active">Stats</li>
-                            <li>Collections</li>
-                            <li>Wallet</li>
+                            <li onClick={() => navigate("/singles")}><p>NFTs</p><div className={activeMenu === "/singles" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li onClick={() => navigate(`/creators`)}><p>Creators</p><div className={activeMenu === "/creators" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li onClick={() => navigate(`/collections`)}><p>Collections</p><div className={activeMenu === "/collections" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li><p>Wallet</p><div className="menuItemBorder"></div></li>
                         </ul>
                     </div>
                 </div>

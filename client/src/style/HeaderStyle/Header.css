@@ -14,6 +14,13 @@
   border-bottom: 1px solid #e7e7e7;
 }
 
+.headerWrapper * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .headerWrapper .header {
   width: 100%;
   max-width: 1920px;
@@ -63,6 +70,10 @@
   padding-left: 30px;
   font-weight: 700;
   font-size: 26px;
+}
+
+.headerWrapper .header .upperMenu .logo:hover {
+  cursor: pointer;
 }
 
 .headerWrapper .header .upperMenu .search {
@@ -218,12 +229,46 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
-  padding: 10px 20px;
-  border-bottom: 2px solid transparent;
   color: #444444;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
+}
+
+.headerWrapper .header .lowerMenu .menu ul li p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+}
+
+.headerWrapper .header .lowerMenu .menu ul li .menuItemBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+  height: 2px;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .headerWrapper .header .lowerMenu .menu ul li:hover {
@@ -231,9 +276,9 @@
   color: black;
 }
 
-.headerWrapper .header .lowerMenu .menu ul .active {
-  border-color: black;
-  color: black;
+.headerWrapper .header .lowerMenu .menu ul li .active {
+  background-color: black;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1500px) {
