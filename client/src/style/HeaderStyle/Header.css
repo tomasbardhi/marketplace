@@ -256,6 +256,11 @@
   padding: 0px 20px;
 }
 
+.headerWrapper .header .lowerMenu .menu ul li .black {
+  color: black;
+  font-weight: 500;
+}
+
 .headerWrapper .header .lowerMenu .menu ul li .menuItemBorder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -339,10 +344,10 @@
   }
   .headerWrapper .header .upperMenu .logo {
     height: 100%;
-    width: 30%;
+    width: 35%;
   }
   .headerWrapper .header .upperMenu .search {
-    width: 70%;
+    width: 65%;
     padding-right: 30px;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -387,29 +392,16 @@
             justify-content: center;
     padding-left: 30px;
   }
+  .headerWrapper .header .lowerMenu .menu ul {
+    width: 100%;
+  }
+  .headerWrapper .header .lowerMenu .menu ul li {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-  .headerWrapper .header .upperMenu .search input::-webkit-input-placeholder {
-    font-size: 10px;
-  }
-  .headerWrapper .header .upperMenu .search input:-ms-input-placeholder {
-    font-size: 10px;
-  }
-  .headerWrapper .header .upperMenu .search input::-ms-input-placeholder {
-    font-size: 10px;
-  }
-  .headerWrapper .header .upperMenu .search input::placeholder {
-    font-size: 10px;
-  }
-  .headerWrapper .header .lowerMenu .menu ul li {
-    padding: 0px 10px;
-  }
-}
-
-@media only screen and (max-width: 380px) {
   .headerWrapper .header .upperMenu .logo {
-    font-size: 20px;
     width: 45%;
   }
   .headerWrapper .header .upperMenu .search {
@@ -429,7 +421,33 @@
   }
   .headerWrapper .header .lowerMenu .menu ul li {
     font-size: 12px;
+  }
+  .headerWrapper .header .lowerMenu .menu ul li p {
     padding: 0px 10px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .headerWrapper .header .upperMenu .logo {
+    font-size: 20px;
+  }
+  .headerWrapper .header .upperMenu .search {
+    width: 55%;
+  }
+  .headerWrapper .header .upperMenu .search input::-webkit-input-placeholder {
+    font-size: 10px;
+  }
+  .headerWrapper .header .upperMenu .search input:-ms-input-placeholder {
+    font-size: 10px;
+  }
+  .headerWrapper .header .upperMenu .search input::-ms-input-placeholder {
+    font-size: 10px;
+  }
+  .headerWrapper .header .upperMenu .search input::placeholder {
+    font-size: 10px;
+  }
+  .headerWrapper .header .lowerMenu .menu ul li {
+    font-size: 12px;
   }
 }
 
@@ -455,9 +473,11 @@
   .headerWrapper .header .upperMenu .search input::placeholder {
     font-size: 10px;
   }
+  .headerWrapper .header .lowerMenu .menu {
+    padding: 0px;
+  }
   .headerWrapper .header .lowerMenu .menu ul li {
     font-size: 12px;
-    padding: 0px 10px;
   }
 }
 /*# sourceMappingURL=Header.css.map */

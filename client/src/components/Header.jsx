@@ -29,9 +29,9 @@ function Header() {
                 <div className="lowerMenu">
                     <div className="menu">
                         <ul>
-                            <li onClick={() => navigate("/singles")}><p>NFTs</p><div className={activeMenu === "/singles" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
-                            <li onClick={() => navigate(`/creators`)}><p>Creators</p><div className={activeMenu === "/creators" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
-                            <li onClick={() => navigate(`/collections`)}><p>Collections</p><div className={activeMenu === "/collections" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li onClick={() => navigate("/singles")}><p className={activeMenu === "/singles" ? "black" : ""}>NFTs</p><div className={activeMenu === "/singles" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li onClick={() => navigate(`/creators`)}><p className={activeMenu === "/creators" ? "black" : ""}>Creators</p><div className={activeMenu === "/creators" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li onClick={() => navigate(`/collections`)}><p className={activeMenu === "/collections" ? "black" : ""}>Collections</p><div className={activeMenu === "/collections" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
                             <li><p>Wallet</p><div className="menuItemBorder"></div></li>
                         </ul>
                     </div>

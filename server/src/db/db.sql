@@ -20,6 +20,7 @@ CREATE TABLE single (
     single_creator_id INT NOT NULL,
     single_collection_id INT,
     single_name VARCHAR(255) NOT NULL,
+    single_price INT NOT NULL,
     PRIMARY KEY (single_id),
     FOREIGN KEY (single_creator_id) REFERENCES creator (creator_id),
     FOREIGN KEY (single_collection_id) REFERENCES collection (collection_id)
