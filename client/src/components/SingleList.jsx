@@ -49,7 +49,7 @@ function SingleList(props) {
                                 </div>
                                 <div className="priceDetail">
                                     <p className="buyBtn">Buy Now</p>
-                                    <p className="price">ETH 0.43</p>
+                                    <p className="price">ADA 22.5</p>
                                 </div>
                             </div>
                         </div>

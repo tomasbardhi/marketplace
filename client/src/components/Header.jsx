@@ -17,7 +17,7 @@ function Header() {
             <div className="header">
                 <div className="upperMenu">
                     <div className="logo" onClick={() => navigate(`/`)}>
-                        <p>DeceNFT</p>
+                        <p>CardaNFT</p>
                     </div>
                     <div className="search">
                         <input type="search" name="" id="" placeholder="Search NFTs, Collections and Creators" />
