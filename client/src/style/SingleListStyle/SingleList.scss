@@ -5,6 +5,53 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 30px;
+
+    .sortBar{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border: 1px solid rgb(231, 231, 231);
+        border-radius: 5px;
+        padding: 20px 10px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+
+        .sort{
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(146, 146, 146);
+            color: grey;
+            border-radius: 3px;
+            margin: 0px 10px;
+            padding: 20px 40px;
+            transition: all 0.2s;
+            user-select: none;
+
+            &:hover{
+                cursor: pointer;
+                border-color: rgb(15, 15, 15);
+                color: rgb(15, 15, 15);
+            }
+
+        }
+
+        .activeSort{
+            background-color: rgb(15, 15, 15) !important;
+            color: white;
+            border-color: rgb(15, 15, 15);
+            pointer-events: none;
+
+            &:hover{
+                color: white;
+            }
+        }
+    }
 
     .singleListGrid{
         width: 100%;

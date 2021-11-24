@@ -8,6 +8,7 @@ function SingleList(props) {
     const { elements, setElements } = useContext(AppContext)
     const navigate = useNavigate();
     const [displayed, setDisplayed] = useState([])
+    const [sort, setSort] = useState("dateDesc")
 
     const loadMore = useCallback(() => {
         if (displayed.length === elements.length) {
@@ -39,13 +40,93 @@ function SingleList(props) {
         navigate(`/single/${id}`)
     }
 
+    const sortByPriceAsc = () => {
+        // set sort to sort type
+        setSort("priceAsc")
+
+        // remove all displayed data
+        setDisplayed([])
+
+        // sort elements by sort type                
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_price < b.single_price) ? -1 : 1
+        }))
+
+        // start displaying elements
+        startDisplay()
+
+    }
+
+    const sortByPriceDesc = () => {
+        // set sort to sort type
+        setSort("priceDesc")
+
+        // remove all displayed data
+        setDisplayed([])
+
+        // sort elements by sort type                
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_price > b.single_price) ? -1 : 1
+        }))
+
+        // start displaying elements
+        startDisplay()
+
+    }
+
+    const sortByDateAsc = () => {
+        // set sort to sort type
+        setSort("dateAsc")
+
+        // remove all displayed data
+        setDisplayed([])
+
+        // sort elements by sort type                
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_id < b.single_id) ? -1 : 1
+        }))
+
+        // start displaying elements
+        startDisplay()
+
+    }
+
+    const sortByDateDesc = () => {
+        // set sort to sort type
+        setSort("dateDesc")
+
+        // remove all displayed data
+        setDisplayed([])
+
+        // sort elements by sort type                
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_id > b.single_id) ? -1 : 1
+        }))
+
+        // start displaying elements
+        startDisplay()
+
+    }
+
+    const startDisplay = () => {
+        let limit;
+        if (elements.length > 30) {
+            limit = 30
+        } else {
+            limit = elements.length
+        }
+        for (let i = 0; i < limit; i++) {
+            setDisplayed(prev => [...prev, elements[i]])
+        }
+    }
+
     useEffect(() => {
         const fetchElements = async () => {
             try {
                 const response = await Api.get("/creator_collection_single")
                 const data = response.data.data.data
                 data.sort((a, b) => {
-                    return (a.single_price > b.single_price) ? -1 : 1
+                    return (a.single_id > b.single_id) ? -1 : 1
                 })
                 setElements(data)
                 let limit;
@@ -67,6 +148,12 @@ function SingleList(props) {
 
     return (
         <div className="singleList">
+            <div className="sortBar">
+                <div className={sort === "dateAsc" ? "sort activeSort" : "sort"} onClick={() => sortByDateAsc()}>Oldest</div>
+                <div className={sort === "dateDesc" ? "sort activeSort" : "sort"} onClick={() => sortByDateDesc()}>Newest</div>
+                <div className={sort === "priceAsc" ? "sort activeSort" : "sort"} onClick={() => sortByPriceAsc()} >Price: Low to High</div>
+                <div className={sort === "priceDesc" ? "sort activeSort" : "sort"} onClick={() => sortByPriceDesc()}>Price High to Low</div>
+            </div>
             <div className="singleListGrid">
                 {displayed.map((element, id) => {
                     return (

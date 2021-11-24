@@ -267,52 +267,52 @@
 
 @media only screen and (max-width: 480px) {    
     
-.SingleDetail{
+    .SingleDetail{
 
-    .SingleDetailPrimaryInfo{
+        .SingleDetailPrimaryInfo{
 
-        .collectionName{
-            font-size: 14px;
-        }
+            .collectionName{
+                font-size: 14px;
+            }
 
-        .singleName{
-            font-size: 24px;
-        }
+            .singleName{
+                font-size: 24px;
+            }
 
-        .creatorName{   
-            font-size: 14px;
-        }
+            .creatorName{   
+                font-size: 14px;
+            }
 
-        .priceBox{
+            .priceBox{
 
-            .singlePrice{
+                .singlePrice{
 
-                .svgContainer{
-                    svg{
-                        height: 32px;
-                        width: 32px;
+                    .svgContainer{
+                        svg{
+                            height: 32px;
+                            width: 32px;
+                        }
+                    }
+
+
+                    p{
+                        font-size: 36px;
                     }
                 }
 
+                .action{
+                    height: 60px;
 
-                p{
-                    font-size: 36px;
+                    .actionBtn{
+                        margin: 10px 5px 10px 5px;
+                        font-size: 12px;
+                        word-spacing: 0px;
+                    }
                 }
             }
 
-            .action{
-                height: 60px;
-
-                .actionBtn{
-                    margin: 10px 5px 10px 5px;
-                    font-size: 12px;
-                    word-spacing: 0px;
-                }
-            }
         }
-
     }
-}
  
 }
 
