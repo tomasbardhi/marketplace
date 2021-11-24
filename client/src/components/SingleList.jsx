@@ -45,7 +45,7 @@ function SingleList(props) {
                 const response = await Api.get("/creator_collection_single")
                 const data = response.data.data.data
                 data.sort((a, b) => {
-                    return (a.single_id > b.single_id) ? -1 : 1
+                    return (a.single_price > b.single_price) ? -1 : 1
                 })
                 setElements(data)
                 let limit;
@@ -84,7 +84,7 @@ function SingleList(props) {
                                 </div>
                                 <div className="priceDetail">
                                     <p className="buyBtn">Buy Now</p>
-                                    <p className="price">ADA {element.creator_price}</p>
+                                    <p className="price">ADA {element.single_price}</p>
                                 </div>
                             </div>
                         </div>
