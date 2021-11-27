@@ -8,6 +8,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.send('<h1>Test</h1>')
+})
+
 // get all creators
 app.get("/api/v1/creator", async (req, res) => {
     try {

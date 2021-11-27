@@ -29,7 +29,8 @@ function Header() {
                 <div className="lowerMenu">
                     <div className="menu">
                         <ul>
-                            <li onClick={() => navigate("/singles")}><p className={activeMenu === "/singles" ? "black" : ""}>NFTs</p><div className={activeMenu === "/singles" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            <li onClick={() => navigate("/")}><p className={activeMenu === "/" ? "black" : ""}>NFTs</p><div className={activeMenu === "/" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
+                            {/* <li onClick={() => navigate("/singles")}><p className={activeMenu === "/singles" ? "black" : ""}>NFTs</p><div className={activeMenu === "/singles" ? "menuItemBorder active" : "menuItemBorder"}></div></li> */}
                             <li onClick={() => navigate(`/creators`)}><p className={activeMenu === "/creators" ? "black" : ""}>Creators</p><div className={activeMenu === "/creators" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
                             <li onClick={() => navigate(`/collections`)}><p className={activeMenu === "/collections" ? "black" : ""}>Collections</p><div className={activeMenu === "/collections" ? "menuItemBorder active" : "menuItemBorder"}></div></li>
                             <li><p>Wallet</p><div className="menuItemBorder"></div></li>

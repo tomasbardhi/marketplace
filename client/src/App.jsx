@@ -14,11 +14,12 @@ const App = () => {
             <div>
                 <Router>
                     <Routes>
-                        <Route exact path="/" element={<HomePage />}></Route>
+                        {/* <Route exact path="/" element={<HomePage />}></Route> */}
+                        <Route exact path="/" element={<SinglesPage />} ></Route>
                         <Route exact path="/single/:id" element={<SingleDetailPage />}></Route>
                         <Route exact path="/creators" element={<CreatorsPage />}></Route>
                         <Route exact path="/collections" element={<CollectionsPage />} ></Route>
-                        <Route exact path="/singles" element={<SinglesPage />} ></Route>
+                        {/* <Route exact path="/singles" element={<SinglesPage />} ></Route> */}
                     </Routes>
                 </Router>
             </div>
