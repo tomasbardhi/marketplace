@@ -226,7 +226,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #e2e0e9;
+  background-color: #b4c9c5;
 }
 
 .singleList .single .infoContainer {
@@ -463,6 +463,7 @@
 @media only screen and (max-width: 440px) {
   .singleList {
     padding: 10px;
+    padding-top: 100px;
   }
   .singleList .sortBar {
     -ms-grid-columns: 1fr 1fr;
