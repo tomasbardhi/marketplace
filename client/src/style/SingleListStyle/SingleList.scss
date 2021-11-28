@@ -7,14 +7,14 @@
     align-items: center;
     flex-direction: column;
     padding: 30px;
-    padding-top: 75px;
+    padding-top: 50px;
 
         .sortBar{
             top: 75px;
             z-index: 100;
             position: fixed;
             width: 100%;
-            height: 75px;
+            height: 60px;
             background-color: #f7f7f7;
             border-bottom: 1px solid rgb(163, 163, 163);
             display: flex;
@@ -22,21 +22,25 @@
             align-items: center;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 12px;
             padding: 0px 30px;
+            overflow-x: scroll;
+            scrollbar-width: none;
 
             .sort{
-                height: 40px;
+                height: 30px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border: 1px solid rgb(146, 146, 146);
                 color: grey;
-                border-radius: 3px;
-                margin: 0px 20px 0px 0px;
-                padding: 20px 40px;
+                border-radius: 100px;
+                margin: 0px 10px 0px 0px;
                 transition: all 0.2s;
                 user-select: none;
+                min-width: 100px;
+                min-width: fit-content;
+                padding: 0px 20px;   
     
                 &:hover{
                     cursor: pointer;
@@ -58,7 +62,8 @@
             }
 
             .moveUp{
-                height: 40px;
+                height: 35px;
+                width: 35px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -70,7 +75,7 @@
                 transition: all 0.2s;
                 user-select: none;
                 margin-left: auto;
-                position: relative;
+                // position: relative;
                 margin-right: 0px;
     
                 svg{
@@ -87,35 +92,7 @@
                         fill: rgb(15, 15, 15);
                     }
 
-                    &::before{
-                        transform: translateX(-115%) translateY(85%) scale(1);
-                    }
-
-                }
-
-                &::before, &::after{
-                    position: absolute;
-                    bottom: -10px;
-                    left: 50%;
-                    transform: translateX(-115%) translateY(85%) scale(0);
-                    transition: transform 0.1s;
-                    transform-origin: top right;
-                    pointer-events: none;
-                }
-
-                &::before{
-                    font-family: 'Montserrat', sans-serif;
-                    font-weight: 300;
-                    font-size: 15px;
-                    padding: 10px 15px;
-                    border-radius: 100px;
-                    border-top-right-radius: 0px;
-                    width: max-content;
-                    color: white;
-                    background-color: rgb(15, 15, 15);
-                    content: attr(data-tooltip);
-                }
-    
+                }    
             }
 
         }
@@ -287,174 +264,59 @@
     .singleList{
 
         .sortBar{
-            top: 150px;
-
-            .sort{
-                height: 40px;
-                border-radius: 3px;
-                margin: 0px 20px 0px 0px;
-                padding: 20px 40px;
-
-            }
-
-            .moveUp{
-                height: 40px;
-                padding: 0px 10px;
-            
-                &:hover{
-
-                    &::before{
-                        transform: scale(0);
-                    }
-
-                }
-
-            }
-
-            
+            top: 100px;           
 
         }
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 550px) {
     .singleList{
+        padding-top: 25px;
 
         .sortBar{
+            height: 120px;
+            height: 40px;
+            font-weight: 500;
+            font-size: 8px;
+            padding-left: 10px;
 
             .sort{
+                height: 20px;
+                display: flex;
                 margin: 0px 10px 0px 0px;
-                padding: 10px 20px;
-
+                transition: all 0.2s;
+                user-select: none;
+                min-width: 100px;
+                min-width: fit-content;
+                padding: 0px 20px;    
             }
-
-            .moveUp{
-                height: 38px;
-                width: 38px;
-            }
-
-        }
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .singleList{
-
-        .sortBar{
-
-            .sort{
-                margin: 0px 5px 0px 0px;
-                padding: 5px 10px;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .singleList{
-
-        .sortBar{
-            font-weight: 400;
-            font-size: 12px;
-
-            .sort{
-                height: 30px;
-                padding: 5px 7px;
-
-            }
-
-            .moveUp{
-                height: 28px;
-                width: 28px;
-                padding: 0px 5px;
-                margin-left: auto;
-
-                svg{
-                    width: 16px;
-                    height: 16px;
-                }
-
-            }
-
-        }
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .singleList{
-
-        .sortBar{
-            height: fit-content;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            font-weight: 400;
-            font-size: 12px;
-            padding: 10px 30px;
-            gap: 5px;
-
-            .sort{
-                height: 30px;
-                padding: 5px 7px;
-                margin: 0px;
-            }
-
-            .moveUp{
-                height: 28px;
-                width: 28px;
-                padding: 0px 5px;
-                margin: 0px;
-                grid-column: 3;
-                justify-self: flex-end;
-
-                svg{
-                    width: 16px;
-                    height: 16px;
-                }
-
-            }
-
-        }
-    }
-}
-
-
-@media only screen and (max-width: 440px) {
-    .singleList{
-        padding: 10px;
-        padding-top: 100px;
-
-        .sortBar{
-            grid-template-columns: 1fr 1fr;    
-
-            .moveUp{
-                grid-column: 1;
-                justify-self: flex-end;
-                transform: translateX(60%);
     
+            .moveUp{
+                height: 20px;
+                width: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid rgb(146, 146, 146);
+                color: grey;
+                border-radius: 100px;
+                margin: 0px 20px 0px 0px;
+                padding: 0px;
+                transition: all 0.2s;
+                user-select: none;
+                margin-left: auto;
+                position: relative;
+                margin-right: 0px;
+    
+                svg{
+                    width: 20px;
+                    height: 10px;
+                    fill: grey;
+                    display: flex;
+                
+                }    
             }
-        }            
-
-    }
-}
-
-@media only screen and (max-width: 310px) {
-    .singleList{
-        padding: 0px;
-
-        .sortBar{
-            font-weight: 400;
-            font-size: 10px;
-
-        }
-    }
-}
-
-@media only screen and (max-width: 300px) {
-    .singleList{
-
-        .sortBar{
-            padding: 10px 10px;
-
         }
     }
 }

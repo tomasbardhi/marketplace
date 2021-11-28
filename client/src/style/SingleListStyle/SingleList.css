@@ -16,7 +16,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 30px;
-  padding-top: 75px;
+  padding-top: 50px;
 }
 
 .singleList .sortBar {
@@ -24,7 +24,7 @@
   z-index: 100;
   position: fixed;
   width: 100%;
-  height: 75px;
+  height: 60px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #a3a3a3;
   display: -webkit-box;
@@ -38,12 +38,14 @@
           align-items: center;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 12px;
   padding: 0px 30px;
+  overflow-x: scroll;
+  scrollbar-width: none;
 }
 
 .singleList .sortBar .sort {
-  height: 40px;
+  height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,15 +57,19 @@
           align-items: center;
   border: 1px solid #929292;
   color: grey;
-  border-radius: 3px;
-  margin: 0px 20px 0px 0px;
-  padding: 20px 40px;
+  border-radius: 100px;
+  margin: 0px 10px 0px 0px;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  min-width: 100px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 0px 20px;
 }
 
 .singleList .sortBar .sort:hover {
@@ -84,7 +90,8 @@
 }
 
 .singleList .sortBar .moveUp {
-  height: 40px;
+  height: 35px;
+  width: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,7 +113,6 @@
       -ms-user-select: none;
           user-select: none;
   margin-left: auto;
-  position: relative;
   margin-right: 0px;
 }
 
@@ -123,41 +129,6 @@
 
 .singleList .sortBar .moveUp:hover svg {
   fill: #0f0f0f;
-}
-
-.singleList .sortBar .moveUp:hover::before {
-  -webkit-transform: translateX(-115%) translateY(85%) scale(1);
-          transform: translateX(-115%) translateY(85%) scale(1);
-}
-
-.singleList .sortBar .moveUp::before, .singleList .sortBar .moveUp::after {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  -webkit-transform: translateX(-115%) translateY(85%) scale(0);
-          transform: translateX(-115%) translateY(85%) scale(0);
-  -webkit-transition: -webkit-transform 0.1s;
-  transition: -webkit-transform 0.1s;
-  transition: transform 0.1s;
-  transition: transform 0.1s, -webkit-transform 0.1s;
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-  pointer-events: none;
-}
-
-.singleList .sortBar .moveUp::before {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  padding: 10px 15px;
-  border-radius: 100px;
-  border-top-right-radius: 0px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  color: white;
-  background-color: #0f0f0f;
-  content: attr(data-tooltip);
 }
 
 .singleList .singleListGrid {
@@ -226,7 +197,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #b4c9c5;
+  background-color: #d3ef9d;
 }
 
 .singleList .single .infoContainer {
@@ -369,128 +340,73 @@
 
 @media only screen and (max-width: 1025px) {
   .singleList .sortBar {
-    top: 150px;
-  }
-  .singleList .sortBar .sort {
-    height: 40px;
-    border-radius: 3px;
-    margin: 0px 20px 0px 0px;
-    padding: 20px 40px;
-  }
-  .singleList .sortBar .moveUp {
-    height: 40px;
-    padding: 0px 10px;
-  }
-  .singleList .sortBar .moveUp:hover::before {
-    -webkit-transform: scale(0);
-            transform: scale(0);
+    top: 100px;
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 550px) {
+  .singleList {
+    padding-top: 25px;
+  }
+  .singleList .sortBar {
+    height: 120px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 8px;
+    padding-left: 10px;
+  }
   .singleList .sortBar .sort {
+    height: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     margin: 0px 10px 0px 0px;
-    padding: 10px 20px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    min-width: 100px;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    padding: 0px 20px;
   }
   .singleList .sortBar .moveUp {
-    height: 38px;
-    width: 38px;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  .singleList .sortBar .sort {
-    margin: 0px 5px 0px 0px;
-    padding: 5px 10px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .singleList .sortBar {
-    font-weight: 400;
-    font-size: 12px;
-  }
-  .singleList .sortBar .sort {
-    height: 30px;
-    padding: 5px 7px;
-  }
-  .singleList .sortBar .moveUp {
-    height: 28px;
-    width: 28px;
-    padding: 0px 5px;
-    margin-left: auto;
-  }
-  .singleList .sortBar .moveUp svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .singleList .sortBar {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-    font-weight: 400;
-    font-size: 12px;
-    padding: 10px 30px;
-    gap: 5px;
-  }
-  .singleList .sortBar .sort {
-    height: 30px;
-    padding: 5px 7px;
-    margin: 0px;
-  }
-  .singleList .sortBar .moveUp {
-    height: 28px;
-    width: 28px;
-    padding: 0px 5px;
-    margin: 0px;
-    -ms-grid-column: 3;
-    grid-column: 3;
-    justify-self: flex-end;
-  }
-  .singleList .sortBar .moveUp svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-@media only screen and (max-width: 440px) {
-  .singleList {
-    padding: 10px;
-    padding-top: 100px;
-  }
-  .singleList .sortBar {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-  }
-  .singleList .sortBar .moveUp {
-    -ms-grid-column: 1;
-    grid-column: 1;
-    justify-self: flex-end;
-    -webkit-transform: translateX(60%);
-            transform: translateX(60%);
-  }
-}
-
-@media only screen and (max-width: 310px) {
-  .singleList {
+    height: 20px;
+    width: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border: 1px solid #929292;
+    color: grey;
+    border-radius: 100px;
+    margin: 0px 20px 0px 0px;
     padding: 0px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    margin-left: auto;
+    position: relative;
+    margin-right: 0px;
   }
-  .singleList .sortBar {
-    font-weight: 400;
-    font-size: 10px;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .singleList .sortBar {
-    padding: 10px 10px;
+  .singleList .sortBar .moveUp svg {
+    width: 20px;
+    height: 10px;
+    fill: grey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 /*# sourceMappingURL=SingleList.css.map */
