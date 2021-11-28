@@ -197,7 +197,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #f2cebe;
+  background-color: #99a8e1;
 }
 
 .singleList .single .infoContainer {
@@ -242,6 +242,8 @@
   font-size: 12px;
   overflow: hidden;
   border-bottom: 1px solid #e7e7e7;
+  overflow-x: scroll;
+  scrollbar-width: none;
 }
 
 .singleList .single .infoContainer .infoDetail .collectionName {
@@ -408,6 +410,20 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .singleList {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .singleList {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 /*# sourceMappingURL=SingleList.css.map */

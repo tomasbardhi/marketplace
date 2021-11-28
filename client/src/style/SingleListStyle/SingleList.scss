@@ -178,6 +178,8 @@
                 font-size: 12px;
                 overflow: hidden;
                 border-bottom: 1px solid rgb(231, 231, 231);
+                overflow-x: scroll;
+                scrollbar-width: none;
                 
 
                 .collectionName{
@@ -319,5 +321,22 @@
                 }    
             }
         }
+    }
+}
+
+
+@media only screen and (max-width: 380px) {
+
+    .singleList{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+
+    .singleList{
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
