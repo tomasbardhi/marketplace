@@ -13,8 +13,8 @@ function SingleDetail() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await Api.get(`/creator_collection_single/${id}`)
-                setSingle(response.data.data.data)
+                const response = await Api.get(`/joined/${id}`)
+                setSingle(response.data.data)
                 return response
             } catch (error) {
                 return error

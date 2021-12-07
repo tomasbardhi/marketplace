@@ -95,8 +95,8 @@ function SingleList(props) {
     useEffect(() => {
         const fetchElements = async () => {
             try {
-                const response = await Api.get("/creator_collection_single")
-                const data = response.data.data.data
+                const response = await Api.get("/joined")
+                const data = response.data.data
                 data.sort((a, b) => {
                     return (a.single_id > b.single_id) ? -1 : 1
                 })
