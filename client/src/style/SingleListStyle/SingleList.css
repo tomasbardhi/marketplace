@@ -42,6 +42,12 @@
   padding: 0px 30px;
   overflow-x: scroll;
   scrollbar-width: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.singleList .sortBar::-webkit-scrollbar {
+  display: none;
 }
 
 .singleList .sortBar .sort {
@@ -197,7 +203,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #99a8e1;
+  background-color: #baecb7;
 }
 
 .singleList .single .infoContainer {
@@ -244,6 +250,11 @@
   border-bottom: 1px solid #e7e7e7;
   overflow-x: scroll;
   scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.singleList .single .infoContainer .infoDetail::-webkit-scrollbar {
+  display: none;
 }
 
 .singleList .single .infoContainer .infoDetail .collectionName {

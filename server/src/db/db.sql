@@ -1,7 +1,8 @@
 CREATE TABLE creator (
     creator_id SERIAL NOT NULL,
     creator_name VARCHAR(255) UNIQUE NOT NULL,
-    creator_address VARCHAR(255) UNIQUE NOT NULL,
+    creator_address VARCHAR(255) UNIQUE,
+    creator_password VARCHAR(255) UNIQUE NOT NULL,
     PRIMARY KEY (creator_id)
 );
 
@@ -24,16 +25,16 @@ CREATE TABLE single (
     FOREIGN KEY (single_collection_id) REFERENCES collection (collection_id)
 );
 
-insert into creator (creator_name, creator_address) values ('mkyngdon0', '0xc185cf60014aabacd01ef7c03e000c21dd26fee4');
-insert into creator (creator_name, creator_address) values ('fcakes1', '0x0f0d1c92b0bc4a4cf194e688d9d9077eeeed9f3c');
-insert into creator (creator_name, creator_address) values ('jhamson2', '0x0d27f681e9322e8dfbe3dc84442604bb47a664c8');
-insert into creator (creator_name, creator_address) values ('spottinger3', '0x69a1caa93a8979ee90122a784d7f8d0a0945d7a4');
-insert into creator (creator_name, creator_address) values ('mosbourne4', '0xcc54c89a328aff6d6056a1e927399f7e53a6ef39');
-insert into creator (creator_name, creator_address) values ('epeat5', '0x8c5a3b4d080e092adabd626aeaad2e9774be4b27');
-insert into creator (creator_name, creator_address) values ('acaveney6', '0xdeda96846f33c0e77e746ebb5a23c0785b50d93e');
-insert into creator (creator_name, creator_address) values ('meddolls7', '0x7ede3c05db692fb2dbbd1bd3afc85f1118af86b6');
-insert into creator (creator_name, creator_address) values ('dberston8', '0x978f87e5e92a09f5639fd0ce158a2ff8f6a9d754');
-insert into creator (creator_name, creator_address) values ('vvaneeden9', '0xf5d6d5bf347407fd7ea947fcfa46291fe8362d8f');
+insert into creator (creator_name, creator_address, creator_password) values ('mkyngdon0', '0xc185cf60014aabacd01ef7c03e000c21dd26fee4', '$2a$10$by5O47k.0187QOOCh89v0O/n.hQg9jrtrKNka/dWRV0Np4z.e0Cta');
+insert into creator (creator_name, creator_address, creator_password) values ('fcakes1', '0x0f0d1c92b0bc4a4cf194e688d9d9077eeeed9f3c', '$2a$10$5Enkztu.z9BwqPXbxx/lyuBoZtIsv5HcmepcELs4pbQSvNKcMHUFS');
+insert into creator (creator_name, creator_address, creator_password) values ('jhamson2', '0x0d27f681e9322e8dfbe3dc84442604bb47a664c8', '$2a$10$Oxa1pdmi54Cb2p4p3rbb3OhTlyPsPhjc7WpAYxs6MimXkibVRQXum');
+insert into creator (creator_name, creator_address, creator_password) values ('spottinger3', '0x69a1caa93a8979ee90122a784d7f8d0a0945d7a4', '$2a$10$EMTEvWVAK/vMcqdReYkEA.ovOr/J6s5Gut2yM5iFj/W4wbfpdkpsa');
+insert into creator (creator_name, creator_address, creator_password) values ('mosbourne4', '0xcc54c89a328aff6d6056a1e927399f7e53a6ef39', '$2a$10$O9iGvkGG0m7uymsBe1ZxcuutkqP5r.7ZkStk/Lpr11uI6pkgtAVya');
+insert into creator (creator_name, creator_address, creator_password) values ('epeat5', '0x8c5a3b4d080e092adabd626aeaad2e9774be4b27', '$2a$10$e3xBFsj5J0RGedLHRu86rOe0EmwlCNU0EKXHXgcCFFdhf1fADj/Ia');
+insert into creator (creator_name, creator_address, creator_password) values ('acaveney6', '0xdeda96846f33c0e77e746ebb5a23c0785b50d93e', '$2a$10$78WhOk9UP.xuVCrMugdqOe/dYJ6M/AcYtlko8nyMyGorD4ezsd6re');
+insert into creator (creator_name, creator_address, creator_password) values ('meddolls7', '0x7ede3c05db692fb2dbbd1bd3afc85f1118af86b6', '$2a$10$lmqxXuqbOGx2KN..2vs3p.eDTiYbQjgZjmD.93hmZaLgASNXdg2Ly');
+insert into creator (creator_name, creator_address, creator_password) values ('dberston8', '0x978f87e5e92a09f5639fd0ce158a2ff8f6a9d754', '$2a$10$wi/ZcqVI534kMeRzKfUgRuU034b/rv3GpRmxl7IFyPGTTa0yGo4ce');
+insert into creator (creator_name, creator_address, creator_password) values ('vvaneeden9', '0xf5d6d5bf347407fd7ea947fcfa46291fe8362d8f', '$2a$10$6czxlQakmMi0G2UfyblEI.X4HVSeCXD39aX498aaunyhpb9zsRl0C');
 
 insert into collection (collection_creator_id, collection_name) values (1, 'Ditch Stonecrop');
 insert into collection (collection_creator_id, collection_name) values (1, 'Acroporium Moss');
