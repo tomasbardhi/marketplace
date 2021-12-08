@@ -26,6 +26,12 @@
             padding: 0px 30px;
             overflow-x: scroll;
             scrollbar-width: none;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            
+            &::-webkit-scrollbar{
+                display: none;
+            }
 
             .sort{
                 height: 30px;
@@ -180,7 +186,11 @@
                 border-bottom: 1px solid rgb(231, 231, 231);
                 overflow-x: scroll;
                 scrollbar-width: none;
+                -ms-overflow-style: none;
                 
+                &::-webkit-scrollbar{
+                    display: none;
+                }
 
                 .collectionName{
                     width: 100%;
