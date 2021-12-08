@@ -1,6 +1,8 @@
 const db = require("../db");
 const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken")
 import Auth from "../models/authModel"
+import Creator from "../models/creatorModel"
 
 const register = async (body: Auth) => {
     try {
@@ -42,13 +44,15 @@ const login = async (body: Auth) => {
                 message: "user not found"
             })
         }
-        console.log(response.rows[0])
-        if(await bcrypt.compare(body.password, response.rows[0].creator_password)){
+        const user:Creator = response.rows[0]
+        if(await bcrypt.compare(body.password, user.creator_password)){
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
             return ({
                 status: "success",
                 length: response.rows.length,
                 data: {
-                    creator: response.rows[0]
+                    creator: user,
+                    token: token
                 }
             })
         }else{

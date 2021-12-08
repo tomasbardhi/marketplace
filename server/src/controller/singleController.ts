@@ -1,4 +1,5 @@
 import express from "express"
+import verifyToken from "../middleware/verifyToken"
 import singleService from "../service/singleService"
 const router = express.Router()
 
@@ -12,17 +13,17 @@ router.get("/:id", async (req, res) => {
     res.send(response.data)
 })
 
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
     const response = await singleService.create(req.body)
     res.send(response.data)
 })
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", verifyToken, async (req, res) => {
     const response = await singleService.update(parseInt(req.params.id), req.body)
     res.send(response.data)
 })
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
     const response = await singleService.remove(parseInt(req.params.id))
     res.send(response.data)
 })
