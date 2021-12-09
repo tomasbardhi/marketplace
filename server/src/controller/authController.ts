@@ -20,4 +20,13 @@ router.post("/login", async (req, res) => {
     }
 })
 
+router.post("/refreshToken", async (req, res) => {
+    try {
+        const response = await authService.refreshToken(req.body)
+        res.send(response)
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 export default router

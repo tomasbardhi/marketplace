@@ -3,7 +3,7 @@ import verifyToken from "../middleware/verifyToken"
 import creatorService from "../service/creatorService"
 const router = express.Router()
 
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
     const response = await creatorService.get()
     res.send(response.data)
 })

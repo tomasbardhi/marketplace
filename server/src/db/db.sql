@@ -3,6 +3,7 @@ CREATE TABLE creator (
     creator_name VARCHAR(255) UNIQUE NOT NULL,
     creator_address VARCHAR(255) UNIQUE,
     creator_password VARCHAR(255) UNIQUE NOT NULL,
+    creator_token TEXT UNIQUE,
     PRIMARY KEY (creator_id)
 );
 

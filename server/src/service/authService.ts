@@ -46,15 +46,62 @@ const login = async (body: Auth) => {
         }
         const user:Creator = response.rows[0]
         if(await bcrypt.compare(body.password, user.creator_password)){
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+            const accessToken = jwt.sign({creator_name: user.creator_name}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
+            const refreshToken = jwt.sign({creator_name: user.creator_name}, process.env.REFRESH_TOKEN_SECRET)
+            await db.query(`UPDATE creator SET creator_token = $1 WHERE creator_name = $2`, [refreshToken, body.username])
             return ({
                 status: "success",
                 length: response.rows.length,
                 data: {
                     creator: user,
-                    token: token
+                    accessToken: accessToken,
+                    refreshToken: refreshToken
                 }
             })
+        }else{
+            return ({
+                status: "failed",
+                message: "wrong credentials"
+            })
+        }
+    } catch (error: any) {
+        return ({
+            status: "failed",
+            message: "error.message"
+        })
+    }
+}
+
+const refreshToken = async (body: {username: string, password: string, refToken: string}) => {
+    try {
+        const refToken = body.refToken
+        if(refToken == null) return ({status: "failed",message: "wrong token"})
+        
+        const response = await db.query(`SELECT * FROM creator WHERE creator_name = $1`, [body.username])
+        if(response.rows.length == 0){
+            return ({
+                status: "failed",
+                message: "user not found"
+            })
+        }
+        const creator:Creator = response.rows[0]
+        if(await bcrypt.compare(body.password, creator.creator_password)){
+            if(!(body.refToken === creator.creator_token)) return ({status: "failed",message: "wrong token"})
+            try {
+                jwt.verify(refToken, process.env.REFRESH_TOKEN_SECRET)
+                const accessToken = jwt.sign({creator_name: creator.creator_name}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
+                return ({
+                    status: "success",
+                    length: response.rows.length,
+                    data: {
+                        creator: creator,
+                        accessToken: accessToken,
+                        refToken: refToken
+                    }
+                })
+            } catch (error) {
+                return ({status: "failed",message: "verification failed123"})
+            }
         }else{
             return ({
                 status: "failed",
@@ -69,4 +116,4 @@ const login = async (body: Auth) => {
     }
 }
 
-export default {register, login}
+export default {register, login, refreshToken}
