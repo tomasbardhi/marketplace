@@ -96,7 +96,7 @@ function SingleList(props) {
         const fetchElements = async () => {
             try {
                 const response = await Api.get("/joined")
-                const data = response.data.data
+                const data = response.data.data.data
                 data.sort((a, b) => {
                     return (a.single_id > b.single_id) ? -1 : 1
                 })

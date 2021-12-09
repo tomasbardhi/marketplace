@@ -36,7 +36,7 @@ function CreatorList(props) {
         const fetchData = async () => {
             try {
                 const response = await Api.get(`/creator`)
-                const data = response.data.creator
+                const data = response.data.data.creator
                 setCreator(data)
                 let limit;
                 if (data.length > 30) {

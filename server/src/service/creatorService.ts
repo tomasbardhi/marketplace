@@ -1,9 +1,14 @@
 const db = require("../db");
 import Creator from "../models/creatorModel"
 
-const get = async () => {
+const get = async (req: any) => {
     try {
-        const result = await db.query(`SELECT * FROM creator`)
+        let result:any
+        if(req.query.page === undefined || req.query.limit === undefined){
+            result = await db.query(`SELECT * FROM creator`)
+        }else{
+            result = await db.query(`SELECT * FROM creator OFFSET $1 LIMIT $2`, [(req.query.page-1)*req.query.limit, req.query.limit])
+        }
         if (result.rows.length === 0) {
             return ({
                 status: "failed",

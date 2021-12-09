@@ -36,7 +36,7 @@ function CollectionList(props) {
         const fetchData = async () => {
             try {
                 const response = await Api.get(`/collection`)
-                const data = response.data.collection
+                const data = response.data.data.collection
                 setCollection(data)
                 let limit;
                 if (data.length > 30) {
