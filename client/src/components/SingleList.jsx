@@ -2,95 +2,15 @@ import React, { useContext, useEffect, useRef, useState, useCallback } from 'rea
 import Api from '../api/Api'
 import { AppContext } from "../context/AppContext"
 import { useNavigate } from "react-router-dom"
+import Pagination from './Pagination'
 
 function SingleList(props) {
 
     const { elements, setElements } = useContext(AppContext)
     const navigate = useNavigate();
-    const [displayed, setDisplayed] = useState([])
     const [sort, setSort] = useState("dateDesc")
-
-    const loadMore = useCallback(() => {
-        if (displayed.length === elements.length) {
-            return
-        }
-        let limit;
-        if (displayed.length + 30 > elements.length) {
-            limit = elements.length
-        } else {
-            limit = displayed.length + 30
-        }
-        for (let i = displayed.length; i < limit; i++) {
-            setDisplayed(prev => [...prev, elements[i]])
-        }
-    }, [displayed.length, elements])
-
-    const observer = useRef()
-    const lastElementRef = useCallback(node => {
-        if (observer.current) observer.current.disconnect()
-        observer.current = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting) {
-                loadMore()
-            }
-        })
-        if (node) observer.current.observe(node)
-    }, [loadMore]);
-
-    const handleView = (id) => {
-        navigate(`/single/${id}`)
-    }
-
-    const sortByPriceAsc = () => {
-        setSort("priceAsc")
-        setDisplayed([])
-        setElements(prev => prev.sort((a, b) => {
-            return (a.single_price < b.single_price) ? -1 : 1
-        }))
-        startDisplay()
-
-    }
-
-    const sortByPriceDesc = () => {
-        setSort("priceDesc")
-        setDisplayed([])
-        setElements(prev => prev.sort((a, b) => {
-            return (a.single_price > b.single_price) ? -1 : 1
-        }))
-        startDisplay()
-
-    }
-
-    const sortByDateAsc = () => {
-        setSort("dateAsc")
-        setDisplayed([])
-        setElements(prev => prev.sort((a, b) => {
-            return (a.single_id < b.single_id) ? -1 : 1
-        }))
-        startDisplay()
-
-    }
-
-    const sortByDateDesc = () => {
-        setSort("dateDesc")
-        setDisplayed([])
-        setElements(prev => prev.sort((a, b) => {
-            return (a.single_id > b.single_id) ? -1 : 1
-        }))
-        startDisplay()
-
-    }
-
-    const startDisplay = () => {
-        let limit;
-        if (elements.length > 30) {
-            limit = 30
-        } else {
-            limit = elements.length
-        }
-        for (let i = 0; i < limit; i++) {
-            setDisplayed(prev => [...prev, elements[i]])
-        }
-    }
+    const [currentPage, setCurrentPage] = useState(1)
+    const [itemsPerPage] = useState(50)
 
     useEffect(() => {
         const fetchElements = async () => {
@@ -101,15 +21,6 @@ function SingleList(props) {
                     return (a.single_id > b.single_id) ? -1 : 1
                 })
                 setElements(data)
-                let limit;
-                if (data.length > 30) {
-                    limit = 30
-                } else {
-                    limit = data.length
-                }
-                for (let i = 0; i < limit; i++) {
-                    setDisplayed(prev => [...prev, data[i]])
-                }
                 return response
             } catch (error) {
                 return error
@@ -117,6 +28,49 @@ function SingleList(props) {
         }
         fetchElements()
     }, [setElements])
+
+
+    const lastItemIndex = currentPage * itemsPerPage
+    const firstItemIndex = lastItemIndex - itemsPerPage
+    const currentItems = elements.slice(firstItemIndex, lastItemIndex)
+
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber)
+        window.scrollTo(0, 0);
+    }
+
+    const handleView = (id) => {
+        navigate(`/single/${id}`)
+    }
+
+    const sortByPriceAsc = () => {
+        setSort("priceAsc")
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_price < b.single_price) ? -1 : 1
+        }))
+    }
+
+    const sortByPriceDesc = () => {
+        setSort("priceDesc")
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_price > b.single_price) ? -1 : 1
+        }))
+    }
+
+    const sortByDateAsc = () => {
+        setSort("dateAsc")
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_id < b.single_id) ? -1 : 1
+        }))
+    }
+
+    const sortByDateDesc = () => {
+        setSort("dateDesc")
+        setElements(prev => prev.sort((a, b) => {
+            return (a.single_id > b.single_id) ? -1 : 1
+        }))
+
+    }
 
     const scrollToTop = (() => {
         window.scrollTo({
@@ -135,9 +89,9 @@ function SingleList(props) {
                 <div className="moveUp" onClick={() => scrollToTop()} data-tooltip="Move to top"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" /></svg></div>
             </div>
             <div className="singleListGrid">
-                {displayed.map((element, id) => {
+                {currentItems.map((element, id) => {
                     return (
-                        <div ref={displayed.length === id + 1 ? lastElementRef : null} className="single" key={id} onClick={() => handleView(element.single_id)}>
+                        <div /*ref={displayed.length === id + 1 ? lastElementRef : null}*/ className="single" key={id} onClick={() => handleView(element.single_id)}>
                             <div className="imgPadding">
                                 <div className="imgContainer">
                                     <div className="img"></div>
@@ -158,6 +112,7 @@ function SingleList(props) {
                     )
                 })}
             </div>
+            <Pagination itemsPerPage={itemsPerPage} totalItems={elements.length} paginate={paginate} currentPage={currentPage} />
         </div >
     )
 }

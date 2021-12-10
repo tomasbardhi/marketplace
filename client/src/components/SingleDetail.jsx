@@ -11,6 +11,9 @@ function SingleDetail() {
     const { single, setSingle } = useContext(AppContext)
 
     useEffect(() => {
+        window.scrollTo({
+            top: 0
+        })
         const fetchData = async () => {
             try {
                 const response = await Api.get(`/joined/${id}`)

@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 })
 
 // get join between creator and single and collection, filter only one single
-router.get("/:id", verifyToken, async (req, res) => {
+router.get("/:id", async (req, res) => {
     const response = await joinedService.getAllDataById(parseInt(req.params.id))
     res.send(response)
 })
