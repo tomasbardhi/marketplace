@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
-import { AppContext } from '../../context/AppContext'
 
 
-function SingleDetailPrimaryInfo() {
+function SingleDetailPrimaryInfo({single}) {
 
-    const { single, setSingle } = useContext(AppContext)
     const dollarPrice = 272.09
 
     return (

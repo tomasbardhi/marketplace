@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import { AppContext } from '../context/AppContext'
 
 function Header() {
 
     const navigate = useNavigate();
-    const { activeMenu, setActiveMenu } = useContext(AppContext)
+    const [activeMenu, setActiveMenu] = useState("")
     const pathname = window.location.pathname
 
     useEffect(() => {

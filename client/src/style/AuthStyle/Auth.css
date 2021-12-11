@@ -1,0 +1,131 @@
+.auth {
+  max-width: 1920px;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.auth .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 475px;
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.auth .card div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: 20%;
+  margin: 20px;
+  padding: 0px 20px;
+}
+
+.auth .card div p {
+  margin: 10px 0px;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #757575;
+}
+
+.auth .card div input {
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #f7f7f7;
+  border: none;
+  color: #232323;
+  border-bottom: 1px solid #d0d0d0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.auth .card div input:focus {
+  outline: none;
+  border-color: #494949;
+}
+
+.auth .card div input p {
+  color: black;
+}
+
+.auth .card .submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: black;
+  width: auto;
+  width: 80%;
+  height: auto;
+  margin-top: 60px;
+  padding: 10px 0px;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.auth .card .submit p {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 26px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 4px;
+  color: white;
+}
+
+.auth .card .submit:hover {
+  cursor: pointer;
+  background-color: #484848;
+}
+
+.auth .card .submit:hover p {
+  color: white;
+}
+/*# sourceMappingURL=Auth.css.map */

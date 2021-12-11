@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import Api from "../api/Api"
-import { AppContext } from "../context/AppContext"
 import SingleDetailNFT from "./SingleDetailComponents/SingleDetailNFT"
 import SingleDetailPrimaryInfo from "./SingleDetailComponents/SingleDetailPrimaryInfo"
 
 function SingleDetail() {
 
     const { id } = useParams()
-    const { single, setSingle } = useContext(AppContext)
+    const [single, setSingle] = useState([])
 
     useEffect(() => {
         window.scrollTo({
@@ -29,7 +28,7 @@ function SingleDetail() {
     return (
         <div className="SingleDetail">
             <SingleDetailNFT />
-            <SingleDetailPrimaryInfo />
+            <SingleDetailPrimaryInfo single={single}/>
         </div>
     )
 }

@@ -1,12 +1,14 @@
-import React, { useContext, useEffect, useRef, useState, useCallback } from 'react'
+import React, {useEffect, useState, useContext } from 'react'
 import Api from '../api/Api'
-import { AppContext } from "../context/AppContext"
 import { useNavigate } from "react-router-dom"
 import Pagination from './Pagination'
+import { AppContext } from '../context/AppContext'
 
 function SingleList(props) {
 
-    const { elements, setElements } = useContext(AppContext)
+    
+    const { authenticated } = useContext(AppContext)
+    const [elements, setElements] = useState([])
     const navigate = useNavigate();
     const [sort, setSort] = useState("dateDesc")
     const [currentPage, setCurrentPage] = useState(1)
@@ -79,7 +81,9 @@ function SingleList(props) {
         })
     })
 
-    return (
+    return (    
+        authenticated
+        ?
         <div className="singleList">
             <div className="sortBar">
                 <div className={sort === "dateAsc" ? "sort activeSort" : "sort"} onClick={() => sortByDateAsc()}>Oldest</div>
@@ -114,6 +118,8 @@ function SingleList(props) {
             </div>
             <Pagination itemsPerPage={itemsPerPage} totalItems={elements.length} paginate={paginate} currentPage={currentPage} />
         </div >
+        :
+        <></>
     )
 }
 

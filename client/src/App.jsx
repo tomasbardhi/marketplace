@@ -7,6 +7,8 @@ import SinglesPage from './routes/SinglesPage'
 import HomePage from './routes/HomePage'
 import { AppContextProvider } from "./context/AppContext"
 import "./style/style.css"
+import RegistrationPage from './routes/Auth/RegistrationPage'
+import LoginPage from './routes/Auth/LoginPage'
 
 const App = () => {
     return (
@@ -19,6 +21,8 @@ const App = () => {
                         <Route exact path="/single/:id" element={<SingleDetailPage />}></Route>
                         <Route exact path="/creators" element={<CreatorsPage />}></Route>
                         <Route exact path="/collections" element={<CollectionsPage />} ></Route>
+                        <Route exact path="/register" element={<RegistrationPage />} ></Route>
+                        <Route exact path="/login" element={<LoginPage />} ></Route>
                         {/* <Route exact path="/singles" element={<SinglesPage />} ></Route> */}
                     </Routes>
                 </Router>
