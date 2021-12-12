@@ -17,7 +17,6 @@ function Login() {
                 password
             }
             const responseUser = await Api.post('/auth/login', body)
-            console.log(responseUser.data.data.creator)
             if (responseUser.data.status === "success") {
                 setAuthenticated(true)
                 setCreator(responseUser.data.data.creator)

@@ -41,7 +41,11 @@ function Header() {
                                 }
                             }
                             ><p>Logout</p></div>
-                            <div className="creator" >
+                            <div 
+                            onClick={() => {
+                                navigate(`/creator/${creator.creator_id}`)
+                            }}
+                            className="creator" >
                                 <p>{creator.creator_name}</p>  
                             </div>
                         </div>

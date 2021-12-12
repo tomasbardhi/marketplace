@@ -1,13 +1,10 @@
-import React, {useEffect, useState, useContext } from 'react'
+import React, {useEffect, useState } from 'react'
 import Api from '../api/Api'
 import { useNavigate } from "react-router-dom"
 import Pagination from './Pagination'
-import { AppContext } from '../context/AppContext'
 
 function SingleList(props) {
 
-    
-    const { authenticated } = useContext(AppContext)
     const [elements, setElements] = useState([])
     const navigate = useNavigate();
     const [sort, setSort] = useState("dateDesc")

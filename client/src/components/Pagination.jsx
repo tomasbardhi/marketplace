@@ -9,13 +9,13 @@ function Paginaton({ itemsPerPage, totalItems, paginate, currentPage }) {
     }
 
     return (
-        pageNumbers.length == 0
+        pageNumbers.length === 0
         ?
             <></>
         :
         <div className="paginationBar">
             <div className="pagination">
-                <div className={currentPage==1 ? "page selected" : "page" } onClick={() => paginate(1)}>1</div>
+                <div className={currentPage===1 ? "page selected" : "page" } onClick={() => paginate(1)}>1</div>
                 {
                     currentPage > 4
                     ?
@@ -29,7 +29,7 @@ function Paginaton({ itemsPerPage, totalItems, paginate, currentPage }) {
                 }
                 {pageNumbers.filter((pageNumber) => (pageNumber <= currentPage+2) && (pageNumber >= currentPage-2) && (pageNumber > 1) && (pageNumber < pageNumbers.length)).map((pageNumber) => {
                     return (
-                        <div key={pageNumber} className={currentPage==pageNumber ? "page selected" : "page" } onClick={() => paginate(pageNumber)}>{pageNumber}</div>
+                        <div key={pageNumber} className={currentPage===pageNumber ? "page selected" : "page" } onClick={() => paginate(pageNumber)}>{pageNumber}</div>
                     )
                 })}
 
@@ -44,7 +44,7 @@ function Paginaton({ itemsPerPage, totalItems, paginate, currentPage }) {
                     :
                     <></>
                 }
-                <div className={currentPage==pageNumbers.length ? "page selected" : "page" } onClick={() => paginate(pageNumbers.length)}>{pageNumbers.length}</div>
+                <div className={currentPage===pageNumbers.length ? "page selected" : "page" } onClick={() => paginate(pageNumbers.length)}>{pageNumbers.length}</div>
             </div>
         </div>
     )

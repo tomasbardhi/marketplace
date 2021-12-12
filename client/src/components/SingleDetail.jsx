@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import Api from "../api/Api"
 import SingleDetailNFT from "./SingleDetailComponents/SingleDetailNFT"

@@ -68,6 +68,7 @@
                     background-color: rgb(42, 42, 42);
                     border: 1px solid rgb(42, 42, 42);
                     margin-right: 10px;
+                    min-width: 100px;
 
                     p{
                         display: flex;
@@ -356,6 +357,7 @@
                         margin: 5px;
                         font-size: 10px;
                         margin-right: 5px;
+                        min-width: 75px;
                     }
                  
                     .action{

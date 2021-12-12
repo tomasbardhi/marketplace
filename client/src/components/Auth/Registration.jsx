@@ -21,7 +21,7 @@ function Registration() {
                 navigate(`/register`)
             }
         } catch (error) {
-            console.log(error)
+            return error
         }
     }
 
