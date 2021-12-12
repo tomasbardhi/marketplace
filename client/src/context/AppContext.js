@@ -9,9 +9,10 @@ export const AppContextProvider = props => {
     // const [activeMenu, setActiveMenu] = useState("")
     const [authenticated, setAuthenticated] = useState(false)
     const [bearerToken, setBearerToken] = useState("")
+    const [creator, setCreator] = useState([])
 
     return (
-        <AppContext.Provider value={{ /*elements, setElements, single, setSingle, activeMenu, setActiveMenu,*/ authenticated, setAuthenticated, bearerToken, setBearerToken }}>
+        <AppContext.Provider value={{ /*elements, setElements, single, setSingle, activeMenu, setActiveMenu,*/ authenticated, setAuthenticated, bearerToken, setBearerToken, creator, setCreator }}>
             {props.children}
         </AppContext.Provider>
     )

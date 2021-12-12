@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 function Login() {
 
-    const { setAuthenticated, setBearerToken } = useContext(AppContext)
+    const { setAuthenticated, setBearerToken, setCreator } = useContext(AppContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
@@ -17,8 +17,10 @@ function Login() {
                 password
             }
             const responseUser = await Api.post('/auth/login', body)
+            console.log(responseUser.data.data.creator)
             if (responseUser.data.status === "success") {
                 setAuthenticated(true)
+                setCreator(responseUser.data.data.creator)
             } else {
                 return "error"
             }

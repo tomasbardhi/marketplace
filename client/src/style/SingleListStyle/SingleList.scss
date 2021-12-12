@@ -50,16 +50,16 @@
     
                 &:hover{
                     cursor: pointer;
-                    border-color: rgb(15, 15, 15);
-                    color: rgb(15, 15, 15);
+                    border-color: rgb(42, 42, 42);
+                    color: rgb(42, 42, 42);
                 }
     
             }
     
             .activeSort{
-                background-color: rgb(15, 15, 15) !important;
+                background-color: rgb(42, 42, 42) !important;
                 color: white;
-                border-color: rgb(15, 15, 15);
+                border-color: rgb(42, 42, 42);
                 pointer-events: none;
     
                 &:hover{
@@ -92,10 +92,10 @@
 
                 &:hover{
                     cursor: pointer;
-                    border-color: rgb(15, 15, 15);
+                    border-color: rgb(42, 42, 42);
                     
                     svg{
-                        fill: rgb(15, 15, 15);
+                        fill: rgb(42, 42, 42);
                     }
 
                 }    
@@ -198,7 +198,7 @@
                     transition: all 0.15s;
 
                     &:hover{
-                        color: black;
+                        color: rgb(42, 42, 42);
                     }
                 }
 
@@ -219,7 +219,7 @@
                     transition: all 0.15s;
 
                     &:hover{
-                        color: black;
+                        color: rgb(42, 42, 42);
                     }
                 }
 
@@ -244,12 +244,12 @@
                     align-items: center;
                     height: 100%;
                     width: 40%;
-                    border: 1px solid rgb(15, 15, 15);
+                    border: 1px solid rgb(42, 42, 42);
                     padding: 10px;
                     transition: all 0.15s;
 
                     &:hover{
-                        background-color: rgb(15, 15, 15);
+                        background-color: rgb(42, 42, 42);
                         color: white;
                     }
 
@@ -306,20 +306,20 @@
     
                 &:hover{
                     cursor: pointer;
-                    border-color: rgb(15, 15, 15);
-                    color: rgb(15, 15, 15);
+                    border-color: rgb(42, 42, 42);
+                    color: rgb(42, 42, 42);
                 }
             }
     
             .selected{
-                background-color: rgb(15, 15, 15);
+                background-color: rgb(42, 42, 42);
                 color: white;
-                border-color: rgb(15, 15, 15);
+                border-color: rgb(42, 42, 42);
             
                 &:hover{
-                background-color: rgb(15, 15, 15);
+                background-color: rgb(42, 42, 42);
                 color: white;
-                border-color: rgb(15, 15, 15);
+                border-color: rgb(42, 42, 42);
                 }
             
             }
@@ -344,7 +344,7 @@
 
 }
 
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 900px) {
     .singleList{
 
         .sortBar{
@@ -354,7 +354,7 @@
     }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 600px) {
     .singleList{
         padding-top: 25px;
 

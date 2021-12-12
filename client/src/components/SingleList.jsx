@@ -82,8 +82,6 @@ function SingleList(props) {
     })
 
     return (    
-        authenticated
-        ?
         <div className="singleList">
             <div className="sortBar">
                 <div className={sort === "dateAsc" ? "sort activeSort" : "sort"} onClick={() => sortByDateAsc()}>Oldest</div>
@@ -118,8 +116,6 @@ function SingleList(props) {
             </div>
             <Pagination itemsPerPage={itemsPerPage} totalItems={elements.length} paginate={paginate} currentPage={currentPage} />
         </div >
-        :
-        <></>
     )
 }
 
