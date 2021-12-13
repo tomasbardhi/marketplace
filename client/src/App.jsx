@@ -4,15 +4,17 @@ import SingleDetailPage from './routes/SingleDetailPage'
 import CreatorsPage from './routes/CreatorsPage'
 import CollectionsPage from './routes/CollectionsPage'
 import SinglesPage from './routes/SinglesPage'
-import { AppContextProvider } from "./context/AppContext"
-import "./style/style.css"
-import RegistrationPage from './routes/Auth/RegistrationPage'
-import LoginPage from './routes/Auth/LoginPage'
+import RegistrationPage from './routes/RegistrationPage'
+import LoginPage from './routes/LoginPage'
 import CreatorPage from './routes/CreatorPage'
+import { AppContextProvider } from "./context/AppContext"
+import { SingleListContextProvider } from "./context/SinglesListContext"
+import "./style/style.css"
 
 const App = () => {
     return (
         <AppContextProvider>
+            <SingleListContextProvider>
             <div>
                 <Router>
                     <Routes>
@@ -28,6 +30,7 @@ const App = () => {
                     </Routes>
                 </Router>
             </div>
+            </SingleListContextProvider>
         </AppContextProvider>
     )
 }

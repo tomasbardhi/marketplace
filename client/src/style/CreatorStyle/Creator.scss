@@ -1,0 +1,87 @@
+.creator-wrapper {
+    width: 100%;
+    max-width: 1920px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .banner{
+        width: 100%;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(42, 42, 42);
+    }
+
+    .profile-wrapper{
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid grey;
+
+
+        .profile-img-wrapper{
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            border: 5px solid #f7f7f7;
+            background-color: #f7f7f7;
+            border-radius: 100px;
+            transform: translateY(-50%);
+
+            .profile-img{
+                width: 175px;
+                height: 175px;
+                // border: 2px solid rgb(42, 42, 42);
+                border-radius: 100px;
+                background-color: rgb(150 + random(100), 150 + random(100), 150 + random(100));
+            }
+
+        }
+
+        .profile-info{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 26px;
+            transform: translateY(-150%);
+
+            .profile-name{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p{
+                    
+                }
+
+            }
+            .profile-address{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                font-weight: 400;
+                color: grey;
+
+                p{
+                    
+                }
+            }
+
+        }
+
+    }
+
+}

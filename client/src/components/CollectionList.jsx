@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Api from '../api/Api'
 
-function CollectionList(props) {
+const CollectionList = () => {
 
     const [collection, setCollection] = useState([])
     const [displayed, setDisplayed] = useState([])

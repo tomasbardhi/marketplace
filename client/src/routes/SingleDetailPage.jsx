@@ -4,10 +4,10 @@ import Header from "../components/Header"
 
 function SingleDetailPage() {
     return (
-        <div>
+        <>
             <Header />
             <SingleDetail />
-        </div>
+        </>
     )
 }
 

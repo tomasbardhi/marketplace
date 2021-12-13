@@ -1,8 +1,13 @@
 import React from 'react'
 
-function Paginaton({ itemsPerPage, totalItems, paginate, currentPage }) {
+const Paginaton = ({itemsPerPage, totalItems, currentPage, setCurrentPage}) => {
 
     const pageNumbers = [];
+
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber)
+        window.scrollTo(0, 0);
+    }
 
     for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
         pageNumbers.push(i)
@@ -11,7 +16,7 @@ function Paginaton({ itemsPerPage, totalItems, paginate, currentPage }) {
     return (
         pageNumbers.length === 0
         ?
-            <></>
+        <></>
         :
         <div className="paginationBar">
             <div className="pagination">

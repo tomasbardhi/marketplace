@@ -4,10 +4,10 @@ import Creator from '../components/Creator'
 
 function CreatorPage() {
     return (
-        <div>
+        <>
             <Header />
             <Creator />
-        </div>
+        </>
     )
 }
 

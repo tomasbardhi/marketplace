@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Api from '../api/Api'
 
-function CreatorList(props) {
+const CreatorList = () => {
 
     const [creator, setCreator] = useState([])
     const [displayed, setDisplayed] = useState([])

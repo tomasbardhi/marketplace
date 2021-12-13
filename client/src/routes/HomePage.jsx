@@ -4,10 +4,10 @@ import Home from '../components/Home'
 
 function HomePage() {
     return (
-        <div>
+        <>
             <Header />
             <Home />
-        </div>
+        </>
     )
 }
 

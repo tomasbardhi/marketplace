@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom"
 import { AppContext } from '../context/AppContext'
 
-function Header() {
+const Header = () => {
 
     const { authenticated, setAuthenticated, setBearerToken, creator } = useContext(AppContext)
     const navigate = useNavigate();

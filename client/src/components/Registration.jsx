@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import Api from "../../api/Api"
+import Api from "../api/Api"
 
-function Registration() {
+const Registration = () => {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")

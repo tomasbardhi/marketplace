@@ -4,10 +4,10 @@ import CreatorList from '../components/CreatorList'
 
 function Home() {
     return (
-        <div>
+        <>
             <Header />
             <CreatorList />
-        </div>
+        </>
     )
 }
 

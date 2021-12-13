@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
-import Api from "../../api/Api"
-import { AppContext } from "../../context/AppContext"
+import Api from "../api/Api"
+import { AppContext } from "../context/AppContext"
 import { useNavigate } from "react-router-dom"
 
-function Login() {
+const Login = () => {
 
     const { setAuthenticated, setBearerToken, setCreator } = useContext(AppContext)
     const [username, setUsername] = useState("")

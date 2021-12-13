@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import Api from '../api/Api'
 import {AppContext} from "../context/AppContext"
 
-function Creator() {
+const Creator = () => {
 
     const { id } = useParams()
     const [creator, setCreator] = useState([])
@@ -25,14 +25,17 @@ function Creator() {
 
         authenticated && bearerToken === creator.creator_token
         ?
-            <div>
-                <h1>ID: {creator.creator_id}</h1>
-                <h1>NAME: {creator.creator_name}</h1>
-                <h1>ADDRESS: {creator.creator_address}</h1>
-                <h1>PASSWORD: {creator.creator_password}</h1>
-                <h1>TOKEN: {creator.creator_token}</h1>
-                <h1>AUTHENTICATED: {authenticated.toString()}</h1>
-                <h1>TOKEN: {bearerToken}</h1>
+            <div className="creator-wrapper">
+                <div className="banner"></div>
+                <div className="profile-wrapper">
+                    <div className="profile-img-wrapper">
+                        <div className="profile-img"></div>
+                    </div>
+                    <div className="profile-info">
+                        <div className="profile-name"><p>{creator.creator_name}</p></div>
+                        <div className="profile-address"><p>{creator.creator_address}</p></div>
+                    </div>
+                </div>
             </div>
         :
         <div>No Permission</div>

@@ -4,10 +4,10 @@ import CollectionsList from '../components/CollectionList'
 
 function CollectionsPage() {
     return (
-        <div>
+        <>
             <Header />
             <CollectionsList />
-        </div>
+        </>
     )
 }
 

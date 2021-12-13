@@ -1,25 +1,4 @@
-.singleList {
-  width: 100%;
-  max-width: 1920px;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 30px;
-  padding-top: 50px;
-}
-
-.singleList .sortBar {
+.sortBar {
   top: 75px;
   z-index: 100;
   position: fixed;
@@ -46,11 +25,11 @@
   -ms-overflow-style: none;
 }
 
-.singleList .sortBar::-webkit-scrollbar {
+.sortBar::-webkit-scrollbar {
   display: none;
 }
 
-.singleList .sortBar .sort {
+.sortBar .sort {
   height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -78,24 +57,24 @@
   padding: 0px 20px;
 }
 
-.singleList .sortBar .sort:hover {
+.sortBar .sort:hover {
   cursor: pointer;
   border-color: #2a2a2a;
   color: #2a2a2a;
 }
 
-.singleList .sortBar .activeSort {
+.sortBar .activeSort {
   background-color: #2a2a2a !important;
   color: white;
   border-color: #2a2a2a;
   pointer-events: none;
 }
 
-.singleList .sortBar .activeSort:hover {
+.sortBar .activeSort:hover {
   color: white;
 }
 
-.singleList .sortBar .moveUp {
+.sortBar .moveUp {
   height: 35px;
   width: 35px;
   display: -webkit-box;
@@ -122,22 +101,22 @@
   margin-right: 0px;
 }
 
-.singleList .sortBar .moveUp svg {
+.sortBar .moveUp svg {
   width: 18px;
   height: 18px;
   fill: grey;
 }
 
-.singleList .sortBar .moveUp:hover {
+.sortBar .moveUp:hover {
   cursor: pointer;
   border-color: #2a2a2a;
 }
 
-.singleList .sortBar .moveUp:hover svg {
+.sortBar .moveUp:hover svg {
   fill: #2a2a2a;
 }
 
-.singleList .singleListGrid {
+.singleListGrid {
   width: 100%;
   display: -ms-grid;
   display: grid;
@@ -149,7 +128,7 @@
   margin: 30px;
 }
 
-.singleList .single {
+.single {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -171,29 +150,29 @@
   transition: all 0.2s;
 }
 
-.singleList .single:hover {
+.single:hover {
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
           box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
   cursor: pointer;
 }
 
-.singleList .single:hover .imgPadding {
+.single:hover .imgPadding {
   padding: 0px;
 }
 
-.singleList .single .imgPadding {
+.single .imgPadding {
   width: 100%;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
-.singleList .single .imgPadding .imgContainer {
+.single .imgPadding .imgContainer {
   width: 100%;
   padding-top: 100%;
   position: relative;
 }
 
-.singleList .single .imgPadding .imgContainer .img {
+.single .imgPadding .imgContainer .img {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   position: absolute;
@@ -203,10 +182,10 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #e8b5f1;
+  background-color: #f2eec5;
 }
 
-.singleList .single .infoContainer {
+.single .infoContainer {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -225,7 +204,7 @@
   border: 1px solid #e7e7e7;
 }
 
-.singleList .single .infoContainer .infoDetail {
+.single .infoContainer .infoDetail {
   width: 100%;
   height: 65%;
   display: -webkit-box;
@@ -253,11 +232,11 @@
   -ms-overflow-style: none;
 }
 
-.singleList .single .infoContainer .infoDetail::-webkit-scrollbar {
+.single .infoContainer .infoDetail::-webkit-scrollbar {
   display: none;
 }
 
-.singleList .single .infoContainer .infoDetail .collectionName {
+.single .infoContainer .infoDetail .collectionName {
   width: 100%;
   color: grey;
   font-style: italic;
@@ -265,21 +244,21 @@
   transition: all 0.15s;
 }
 
-.singleList .single .infoContainer .infoDetail .collectionName:hover {
+.single .infoContainer .infoDetail .collectionName:hover {
   color: #2a2a2a;
 }
 
-.singleList .single .infoContainer .infoDetail .singleName {
+.single .infoContainer .infoDetail .singleName {
   width: 100%;
   font-weight: 600;
   word-break: break-word;
 }
 
-.singleList .single .infoContainer .infoDetail .singleName:hover {
+.single .infoContainer .infoDetail .singleName:hover {
   text-decoration: underline;
 }
 
-.singleList .single .infoContainer .infoDetail .creatorName {
+.single .infoContainer .infoDetail .creatorName {
   width: 100%;
   color: grey;
   font-style: italic;
@@ -287,11 +266,11 @@
   transition: all 0.15s;
 }
 
-.singleList .single .infoContainer .infoDetail .creatorName:hover {
+.single .infoContainer .infoDetail .creatorName:hover {
   color: #2a2a2a;
 }
 
-.singleList .single .infoContainer .priceDetail {
+.single .infoContainer .priceDetail {
   width: 100%;
   height: 35%;
   display: -webkit-box;
@@ -314,7 +293,7 @@
   font-size: 15px;
 }
 
-.singleList .single .infoContainer .priceDetail .buyBtn {
+.single .infoContainer .priceDetail .buyBtn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -332,12 +311,12 @@
   transition: all 0.15s;
 }
 
-.singleList .single .infoContainer .priceDetail .buyBtn:hover {
+.single .infoContainer .priceDetail .buyBtn:hover {
   background-color: #2a2a2a;
   color: white;
 }
 
-.singleList .single .infoContainer .priceDetail .price {
+.single .infoContainer .priceDetail .price {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -351,7 +330,7 @@
   width: 60%;
 }
 
-.singleList .paginationBar {
+.paginationBar {
   width: 100%;
   background-color: #f7f7f7;
   display: -webkit-box;
@@ -370,14 +349,14 @@
   border: 1px solid #cecece;
 }
 
-.singleList .paginationBar * {
+.paginationBar * {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
 
-.singleList .paginationBar .pagination {
+.paginationBar .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -386,7 +365,7 @@
           justify-content: center;
 }
 
-.singleList .paginationBar .pagination .page {
+.paginationBar .pagination .page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -408,25 +387,25 @@
   transition: all 0.2s;
 }
 
-.singleList .paginationBar .pagination .page:hover {
+.paginationBar .pagination .page:hover {
   cursor: pointer;
   border-color: #2a2a2a;
   color: #2a2a2a;
 }
 
-.singleList .paginationBar .pagination .selected {
+.paginationBar .pagination .selected {
   background-color: #2a2a2a;
   color: white;
   border-color: #2a2a2a;
 }
 
-.singleList .paginationBar .pagination .selected:hover {
+.paginationBar .pagination .selected:hover {
   background-color: #2a2a2a;
   color: white;
   border-color: #2a2a2a;
 }
 
-.singleList .paginationBar .pagination .intermezzo {
+.paginationBar .pagination .intermezzo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -439,7 +418,7 @@
   margin: 0px 10px;
 }
 
-.singleList .paginationBar .pagination .intermezzo div {
+.paginationBar .pagination .intermezzo div {
   margin-right: 5px;
   width: 5px;
   height: 5px;
