@@ -49,7 +49,14 @@ const Paginaton = ({itemsPerPage, totalItems, currentPage, setCurrentPage}) => {
                     :
                     <></>
                 }
-                <div className={currentPage===pageNumbers.length ? "page selected" : "page" } onClick={() => paginate(pageNumbers.length)}>{pageNumbers.length}</div>
+                {
+                    pageNumbers.length > 1
+                    ?
+                    <div className={currentPage===pageNumbers.length ? "page selected" : "page" } onClick={() => paginate(pageNumbers.length)}>{pageNumbers.length}</div>
+                    :
+                    <></>
+                }
+                
             </div>
         </div>
     )

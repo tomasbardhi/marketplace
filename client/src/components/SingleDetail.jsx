@@ -14,7 +14,7 @@ const SingleDetail = () => {
         })
         const fetchData = async () => {
             try {
-                const response = await Api.get(`/joined/${id}`)
+                const response = await Api.get(`/joined/single/${id}`)
                 setSingle(response.data.data.data)
                 return response
             } catch (error) {

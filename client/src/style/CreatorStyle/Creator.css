@@ -44,7 +44,6 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  border-bottom: 1px solid grey;
 }
 
 .creator-wrapper .profile-wrapper .profile-img-wrapper {
@@ -59,7 +58,7 @@
   width: 175px;
   height: 175px;
   border-radius: 100px;
-  background-color: #d4e0c1;
+  background-color: #f4b4d9;
 }
 
 .creator-wrapper .profile-wrapper .profile-info {
@@ -112,4 +111,76 @@
   font-weight: 400;
   color: grey;
 }
-/*# sourceMappingURL=creator.css.map */
+
+.typeBar {
+  width: 100%;
+  height: 75px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #a3a3a3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 0px 30px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.typeBar::-webkit-scrollbar {
+  display: none;
+}
+
+.typeBar .type {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #929292;
+  color: grey;
+  margin: 0px 10px 0px 0px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  min-width: 100px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 0px 20px;
+}
+
+.typeBar .type:hover {
+  cursor: pointer;
+  border-color: #2a2a2a;
+  color: #2a2a2a;
+}
+
+.typeBar .activeType {
+  background-color: #2a2a2a !important;
+  color: white;
+  border-color: #2a2a2a;
+  pointer-events: none;
+}
+
+.typeBar .activeType:hover {
+  color: white;
+}
+/*# sourceMappingURL=Creator.css.map */

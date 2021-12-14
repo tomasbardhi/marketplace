@@ -42,7 +42,7 @@ const getAllData = async (req: any) => {
 }
 
 // get join between creator and single and collection, filter only one single
-const getAllDataById = async (id: number) => {
+const getAllDataBySingleId = async (id: number) => {
     try {
         const result = await db.query(
             `SELECT * 
@@ -74,4 +74,38 @@ const getAllDataById = async (id: number) => {
     }
 }
 
-export default { getAllDataById, getAllData }
+
+// get join between creator and single and collection, filter only one single
+const getAllDataByCreatorId = async (id: number) => {
+    try {
+        const result = await db.query(
+            `SELECT * 
+            FROM creator 
+            JOIN collection ON creator.creator_id = collection.collection_creator_id
+            JOIN single ON collection.collection_id = single.single_collection_id
+            WHERE creator.creator_id = $1`,
+            [id]
+        )
+        if (result.rows.length === 0) {
+            return ({
+                status: "failed",
+                message: "nothing found"
+            })
+        } else {
+            return ({
+                status: "success",
+                length: result.rows.length,
+                data: {
+                    data: result.rows
+                }
+            })
+        }
+    } catch (error: any) {
+        return ({
+            status: "failed",
+            message: error.message
+        })
+    }
+}
+
+export default { getAllDataBySingleId, getAllDataByCreatorId, getAllData }

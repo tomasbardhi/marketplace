@@ -56,6 +56,32 @@ const getById = async (id: number) => {
     }
 }
 
+
+const getByCreatorId = async (id: number) => {
+    try {
+        const result = await db.query(`SELECT * FROM collection WHERE collection_creator_id = $1`, [id])
+        if (result.rows.length === 0) {
+            return ({
+                status: "failed",
+                message: "collection not found"
+            })
+        } else {
+            return ({
+                status: "success",
+                length: result.rows.length,
+                data: {
+                    collection: result.rows
+                }
+            })
+        }
+    } catch (error: any) {
+        return ({
+            status: "failed",
+            message: error.message
+        })
+    }
+}
+
 const create = async (body: Collection) => {
     try {
         const result = await db.query(`INSERT INTO collection (collection_creator_id, collection_name) VALUES ($1, $2) returning *`, [body.collection_creator_id, body.collection_name])
@@ -138,4 +164,4 @@ const remove = async (id: number) => {
     }
 }
 
-export default { get, getById, create, update, remove }
+export default { get, getById, getByCreatorId, create, update, remove }

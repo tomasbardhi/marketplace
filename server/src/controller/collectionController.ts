@@ -13,6 +13,13 @@ router.get("/:id", async (req, res) => {
     res.send(response)
 })
 
+
+router.get("/creator/:id", async (req, res) => {
+    const response = await collectionService.getByCreatorId(parseInt(req.params.id))
+    res.send(response)
+})
+
+
 router.post("/", verifyToken, async (req, res) => {
     const response = await collectionService.create(req.body)
     res.send(response)
