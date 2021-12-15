@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import Api from "../api/Api"
-import {AppContext} from "../context/AppContext"
 import CreatorBanner from '../components/Creator'
 import Header from '../components/Header'
 import Singles from '../components/Singles'
@@ -13,7 +12,6 @@ const CreatorDetailPage = () => {
 
     const { id } = useParams()
     const [creator, setCreator] = useState([])
-    const {authenticated, bearerToken} = useContext(AppContext)
     const [elements, setElements] = useState([])
     const [collections, setCollections] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
@@ -51,11 +49,16 @@ const CreatorDetailPage = () => {
     }, [id])
 
     return (
-        authenticated && bearerToken === creator.creator_token
-        ?
             <>
                 <Header/>
                 <CreatorBanner creator={creator}/>
+                {
+                currentElements.length === 0
+                ?
+                    <div className="container">
+                        <h1 style={{fontFamily: "Poppins", fontWeight: 400}} >No NFTs or Collections found</h1>
+                    </div>
+                :
                 <div className="container">
                     <div className="typeBar">
                         <div className={display === "single" ? "type activeType" : "type" } onClick={() => {
@@ -82,12 +85,9 @@ const CreatorDetailPage = () => {
                         </>
                     }
                 </div>
+                }
+
             </>
-        :
-        <>
-            <Header />
-            <div>No Permission</div>
-        </>
     )
 }
 

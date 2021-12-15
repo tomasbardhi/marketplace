@@ -1,12 +1,14 @@
 import React, {useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import Api from "../api/Api"
+import { useNavigate } from "react-router-dom"
 
 const SingleDetail = () => {
 
     const { id } = useParams()
     const [single, setSingle] = useState([])
     const dollarPrice = 272.09
+    const navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo({
@@ -34,7 +36,10 @@ const SingleDetail = () => {
             <div className="SingleDetailPrimaryInfo">
                 <p className="collectionName">{single.collection_name}</p>
                 <p className="singleName">{single.single_name}</p>
-                <p className="creatorName">Created by {single.creator_name}</p>
+                <p className="creatorName" onClick={(e) => {
+                        e.stopPropagation()
+                        navigate(`/creator/${single.creator_id}`)
+                        }}>Created by {single.creator_name}</p>
                 <div className="priceBox">
                     <p>Current price</p>
                     <div className="singlePrice">

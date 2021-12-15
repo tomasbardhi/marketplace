@@ -8,7 +8,10 @@ const Singles = ({currentElements}) => {
         <div className="singleListGrid">
             {currentElements.map((element, id) => {
                 return (
-                    <div className="single" key={id} onClick={() => navigate(`/single/${element.single_id}`)}>
+                    <div className="single" key={id} onClick={(e) => {
+                        e.stopPropagation()
+                        navigate(`/single/${element.single_id}`)
+                        }}>
                         <div className="imgPadding">
                             <div className="imgContainer">
                                 <div className="img"></div>
@@ -18,7 +21,10 @@ const Singles = ({currentElements}) => {
                             <div className="infoDetail">
                                 <div className="collectionName"><p>{element.collection_name}</p></div>
                                 <div className="singleName"><p>{element.single_name}</p></div>
-                                <div className="creatorName"><p>By {element.creator_name}</p></div>
+                                <div className="creatorName" onClick={(e) => {
+                                    e.stopPropagation()
+                                    navigate(`/creator/${element.creator_id}`)
+                                }}><p>By {element.creator_name}</p></div>
                             </div>
                             <div className="priceDetail">
                                 <p className="buyBtn">Buy Now</p>
