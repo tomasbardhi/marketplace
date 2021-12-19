@@ -145,15 +145,17 @@
                     font-size: 18px;
                     border-radius: 3px;
                     font-family: 'Montserrat', sans-serif;
-                    font-weight: 400;
-                    background-color: rgb(39, 39, 39);
+                    font-weight: 500;
+                    // background-color: rgb(39, 39, 39);
+                    background-color: transparent;
                     border: 2px solid rgb(39, 39, 39);
-                    color: white;
+                    // color: white;
+                    color: black;
                 
                     &:hover{
                         cursor: pointer;
-                        background-color:#00A36C;
-                        border-color:#00A36C;
+                        background-color:rgb(39, 39, 39);
+                        color: white;
                     }
 
                 }
